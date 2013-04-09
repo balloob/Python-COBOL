@@ -79,20 +79,36 @@ The utility allows for some command-line switches to disable some processing ste
 ### From within your Python code
 The parser can also be called from your Python code. All you need is a list of lines in COBOL Copybook format. See example.py how one would do it:
 
-	import cobol
+```python
+import cobol
 
-	with open("example.cbl",'r') as f:
-	    for row in cobol.process_cobol(f.readlines()):
-	    	print row['name']
+with open("example.cbl",'r') as f:
+    for row in cobol.process_cobol(f.readlines()):
+    	print row['name']
+```
 
 It is also possible to call one of the more specialized functions within cobol.py:
- - clean_cobol(lines)
-   Cleans the COBOL by converting the cobol informaton to single lines
- - parse_cobol(lines)
-   Parses a list of COBOL field definitions into a list of dictionaries containing the parsed information.
- - denormalize_cobol(lines)
-   Denormalizes parsed COBOL lines
- - clean_names(lines, ensure_unique_names=False, strip_prefix=False, make_database_safe=False)
-   Cleans names of the fields in a list of parsed COBOL lines. Options to strip prefixes, enforce unique names and make the names database safe by converting dashes (-) to underscores (_)
- - print_cobol(lines)
-   Prints parsed COBOL lines in the Copybook format
+
+*    **clean_cobol(lines)**
+    
+     Cleans the COBOL by converting the cobol informaton to single lines
+
+
+*    **parse_cobol(lines)**
+
+     Parses a list of COBOL field definitions into a list of dictionaries containing the parsed information.
+
+
+*    **denormalize_cobol(lines)**
+
+     Denormalizes parsed COBOL lines
+
+
+*    **clean_names(lines, ensure_unique_names=False, strip_prefix=False, make_database_safe=False)**
+     
+     Cleans names of the fields in a list of parsed COBOL lines. Options to strip prefixes, enforce unique names and make the names database safe by converting dashes (-) to underscores (_)
+
+
+*    **print_cobol(lines)**
+     
+     Prints parsed COBOL lines in the Copybook format
